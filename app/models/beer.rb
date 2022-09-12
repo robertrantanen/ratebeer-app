@@ -10,4 +10,8 @@ class Beer < ApplicationRecord
         #end
         #return sum / ratings.size
     end
+
+    def to_s
+        return name+", "+brewery.name
+    end
 end
