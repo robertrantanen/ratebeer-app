@@ -19,6 +19,8 @@ group :production do
    gem 'pg'
 end
 
+gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do gem 'pry-byebug' end
 
 # Use the Puma web server [https://github.com/puma/puma]
