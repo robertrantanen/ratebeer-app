@@ -21,6 +21,8 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rspec-rails', '~> 6.0.0.rc1'
+
 group :development, :test do gem 'pry-byebug' end
 
 # Use the Puma web server [https://github.com/puma/puma]
