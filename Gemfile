@@ -21,8 +21,6 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'rspec-rails', '~> 6.0.0.rc1'
-
 group :development, :test do gem 'pry-byebug' end
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -82,4 +80,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'factory_bot_rails'
+  gem 'launchy'
 end
