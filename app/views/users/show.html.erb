@@ -5,6 +5,21 @@
 <%= @user.username %>
 </p>
 
+<p>
+Favorite beer:
+<%= @user.favorite_beer %>
+</p>
+
+<p>
+Favorite style:
+<%= @user.favorite_style %>
+</p>
+
+<p>
+Favorite brewery:
+<%= @user.favorite_brewery %>
+</p>
+
 <% if @user.ratings.empty? %>
   <p>User doesn't have any ratings!</p>
 <% else %>
@@ -13,9 +28,10 @@
 
 <ul>
   <% @user.ratings.each do |rating| %>
-    <li><%= "#{rating.to_s}" %>
+    <li>
+      <%= "#{rating.score} #{rating.beer.name}" %>
       <% if @user == current_user %>
-        <%= link_to "Delete", rating, data: {turbo_method: :delete} %>
+        <%= button_to 'Delete', rating, method: :delete, form: { style: 'display:inline-block;',  data: { 'turbo-confirm': 'Are you sure?' } } %>
       <% end %>
     </li>
   <% end %>

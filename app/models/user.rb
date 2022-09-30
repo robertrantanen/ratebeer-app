@@ -16,4 +16,33 @@ class User < ApplicationRecord
 
     ratings.order(score: :desc).limit(1).first.beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+    styles = styles_from_beers
+    styles.max_by {|i| styles.count(i)}
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+    breweries = breweries_from_beers
+    breweries.max_by {|i| breweries.count(i)}
+  end
+
+  def beers_from_ratings
+    return nil if ratings.empty?
+    ratings.map{ |rating| rating.beer }
+  end
+
+  def styles_from_beers
+    return nil if ratings.empty?
+    beers = beers_from_ratings
+    beers.map{ |beer| beer.style }
+  end
+
+  def breweries_from_beers
+    return nil if ratings.empty?
+    beers = beers_from_ratings
+    beers.map{ |beer| beer.brewery.name }
+  end
 end

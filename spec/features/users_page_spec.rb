@@ -29,16 +29,18 @@ describe "User" do
         visit user_path(user)
         expect(page).to have_content 'User has done 2 ratings with average of 15.0'
     end
-    # it "can delete rating" do
-    #     user = User.first
-    #     create_beer_with_rating({user: user}, 10)
-    #     visit user_path(user)
-    #     expect(Rating.count).to eq(1)
-    #     expect(page).to have_content 'User has done 1 rating with average of 10.0'
-    #     click_link('Delete')
-    #     expect(Rating.count).to eq(0)
-    #     expect(page).to have_content 'User doesn\'t have any ratings!'
-    # end
+    it "can delete rating" do
+        sign_in(username: "Pekka", password: "Foobar1")
+        user = User.first
+        create_beer_with_rating({user: user}, 10)
+        visit user_path(user)
+        expect(Rating.count).to eq(1)
+        expect(page).to have_content 'User has done 1 rating with average of 10.0'
+        click_button('Delete')
+        visit user_path(user)
+        expect(Rating.count).to eq(0)
+        expect(page).to have_content 'User doesn\'t have any ratings!'
+    end
 
   end
   it "when signed up with good credentials, is added to the system" do
