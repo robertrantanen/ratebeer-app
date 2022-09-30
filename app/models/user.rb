@@ -19,30 +19,14 @@ class User < ApplicationRecord
 
   def favorite_style
     return nil if ratings.empty?
-    styles = styles_from_beers
-    styles.max_by {|i| styles.count(i)}
+    r = ratings.group_by { |rating| rating.beer.style }
+    r.max_by{|k, v| v.map(&:score).sum / v.count.to_f}[0]
   end
 
   def favorite_brewery
     return nil if ratings.empty?
-    breweries = breweries_from_beers
-    breweries.max_by {|i| breweries.count(i)}
+    r = ratings.group_by { |rating| rating.beer.brewery.name }
+    r.max_by{|k, v| v.map(&:score).sum / v.count.to_f}[0]
   end
 
-  def beers_from_ratings
-    return nil if ratings.empty?
-    ratings.map{ |rating| rating.beer }
-  end
-
-  def styles_from_beers
-    return nil if ratings.empty?
-    beers = beers_from_ratings
-    beers.map{ |beer| beer.style }
-  end
-
-  def breweries_from_beers
-    return nil if ratings.empty?
-    beers = beers_from_ratings
-    beers.map{ |beer| beer.brewery.name }
-  end
 end

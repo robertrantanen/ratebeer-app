@@ -79,12 +79,12 @@ RSpec.describe User, type: :model do
     end
     it "is the most frequent style if several rated" do
       create_beer_with_rating_and_style({ user: user }, 20 ,"Lager")
-      create_beer_with_rating_and_style({ user: user }, 20 ,"Weizen")
+      create_beer_with_rating_and_style({ user: user }, 10 ,"Weizen")
       create_beer_with_rating_and_style({ user: user }, 20 ,"Lager")
-      create_beer_with_rating_and_style({ user: user }, 20 ,"Weizen")
-      create_beer_with_rating_and_style({ user: user }, 20 ,"Weizen")
+      create_beer_with_rating_and_style({ user: user }, 10 ,"Weizen")
+      create_beer_with_rating_and_style({ user: user }, 10 ,"Weizen")
 
-      expect(user.favorite_style).to eq("Weizen")
+      expect(user.favorite_style).to eq("Lager")
     end
   end
   describe "favorite brewery" do
@@ -106,9 +106,8 @@ RSpec.describe User, type: :model do
       create_beers_with_many_ratings({user: user}, 10, 20)
       brewery=FactoryBot.create(:brewery, name:"Koff")
       beer1=FactoryBot.create(:beer, brewery:brewery)
-      FactoryBot.create(:rating, beer: beer1, score: 10, user:user )
-      FactoryBot.create(:rating, beer: beer1, score: 10, user:user )
-      FactoryBot.create(:rating, beer: beer1, score: 10, user:user )
+      FactoryBot.create(:rating, beer: beer1, score: 20, user:user )
+      FactoryBot.create(:rating, beer: beer1, score: 20, user:user )
 
       expect(user.favorite_brewery).to eq("Koff")
     end
