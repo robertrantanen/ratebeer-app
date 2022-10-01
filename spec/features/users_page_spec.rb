@@ -41,8 +41,23 @@ describe "User" do
         expect(Rating.count).to eq(0)
         expect(page).to have_content 'User doesn\'t have any ratings!'
     end
+    it "can see favorite style" do
+      sign_in(username: "Pekka", password: "Foobar1")
+      user = User.first
+      create_beer_with_rating({user: user}, 10)
+      visit user_path(user)
+      expect(page).to have_content 'Favorite style: Lager'
+    end
+    it "can see favorite brewery" do
+      sign_in(username: "Pekka", password: "Foobar1")
+      user = User.first
+      create_beer_with_rating({user: user}, 10)
+      visit user_path(user)
+      expect(page).to have_content 'Favorite brewery: anonymous'
+    end
 
   end
+  
   it "when signed up with good credentials, is added to the system" do
     visit signup_path
     fill_in('user_username', with: 'Brian')
