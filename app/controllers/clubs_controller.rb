@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: %i[show edit update destroy]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /clubs or /clubs.json
   def index
