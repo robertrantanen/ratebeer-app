@@ -145,14 +145,13 @@
           1,
           null,
           1,
-          200,
+          213,
           null,
-          159,
+          160,
           null,
           null,
           1,
           4,
-          null,
           null,
           null
         ]
@@ -449,6 +448,54 @@
           1,
           0,
           null,
+          null
+        ]
+      },
+      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/lib/beermapping_api.rb": {
+        "lines": [
+          1,
+          1,
+          3,
+          null,
+          3,
+          3,
+          null,
+          3,
+          null,
+          2,
+          2,
+          13,
+          null,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null
+        ]
+      },
+      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/models/place.rb": {
+        "lines": [
+          1,
+          1,
+          6,
+          null,
+          null
+        ]
+      },
+      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/controllers/places_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          3,
+          3,
+          1,
+          null,
+          2,
+          null,
           null,
           null
         ]
@@ -686,6 +733,6 @@
         }
       }
     },
-    "timestamp": 1664634551
+    "timestamp": 1664872114
   }
 }
