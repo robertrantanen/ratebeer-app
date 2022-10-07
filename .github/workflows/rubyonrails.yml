@@ -25,6 +25,7 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      BEERMAPPING_APIKEY: "5d44d431eaec0b847c5067ead93b0de3"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
