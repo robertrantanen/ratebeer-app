@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @style %>
+
+<strong>
+Beers:
+</strong>
+
+<p>
+<% @style.beers.each do |beer| %>
+  <%= link_to beer.name, beer %>
+<% end %>
+</p>
+
+<div>
+  <%= link_to "Edit this style", edit_style_path(@style) if current_user %> |
+  <%= link_to "Back to styles", styles_path %>
+</div>
