@@ -10,6 +10,22 @@
   <% end %>
 </ul>
 
+<% if current_user and !current_user.clubs.include? @club  %>
+
+<%= form_with(model: @membership) do |form| %>
+  <%= form.hidden_field :club_id, value: @club.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Join the beer club" %>
+<% end %>
+
+<% end %>
+
+<% if current_user and current_user.clubs.include? @club  %>
+
+<%= button_to 'End the membership', membership_path(club: @club.id, user: current_user.id), method: :delete, form: { style: 'display:inline-block;',  data: { 'turbo-confirm': 'Are you sure?' } } %>
+
+<% end %>
+
 <div>
   <%= link_to "Edit this club", edit_club_path(@club) if current_user%> |
   <%= link_to "Back to clubs", clubs_path %>

@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: %i[show edit update destroy]
+  before_action :set_membership, only: %i[show edit update]
 
   # GET /memberships or /memberships.json
   def index
@@ -27,7 +27,7 @@ class MembershipsController < ApplicationController
 
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to user_path(current_user), notice: "Membership was successfully created." }
+        format.html { redirect_to club_url(@membership.club), notice: "#{current_user.username} welcome to club." }
         format.json { render :show, status: :created, location: @membership }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,10 +51,12 @@ class MembershipsController < ApplicationController
 
   # DELETE /memberships/1 or /memberships/1.json
   def destroy
-    @membership.destroy
+    membership = Membership.find_by(club: params[:club], user: params[:user])
+    membership.destroy
+    club = Club.find(params[:club])
 
     respond_to do |format|
-      format.html { redirect_to memberships_url, notice: "Membership was successfully destroyed." }
+      format.html { redirect_to user_path(current_user), notice: "Membership in #{club.name} ended." }
       format.json { head :no_content }
     end
   end
