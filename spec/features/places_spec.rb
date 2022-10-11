@@ -5,6 +5,9 @@ describe "Places" do
     allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
       [ Place.new( name: "Oljenkorsi", id: 1 ) ]
     )
+    allow(WeatherApi).to receive(:get_weather_in).with("kumpula").and_return(
+      nil
+    )
 
     visit places_path
     fill_in('city', with: 'kumpula')
@@ -15,6 +18,9 @@ describe "Places" do
   it "if multiple are returned by the API, they are shown at the page" do
     allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
       [ Place.new( name: "Oljenkorsi", id: 1 ), Place.new( name: "Gurula", id: 2 ), Place.new( name: "Unicafe", id: 3 ) ]
+    )
+    allow(WeatherApi).to receive(:get_weather_in).with("kumpula").and_return(
+      nil
     )
 
     visit places_path
@@ -31,6 +37,12 @@ describe "Places" do
     )
     allow(BeermappingApi).to receive(:places_in).with("kampala").and_return(
       []
+    )
+    allow(WeatherApi).to receive(:get_weather_in).with("kumpula").and_return(
+      nil
+    )
+    allow(WeatherApi).to receive(:get_weather_in).with("kampala").and_return(
+      nil
     )
 
     visit places_path

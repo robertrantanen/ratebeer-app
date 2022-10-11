@@ -18,7 +18,7 @@ class BeersController < ApplicationController
     @beer = Beer.new
     @breweries = Brewery.all
     @styles = Style.all
-    #@styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
+    # @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
   end
 
   # GET /beers/1/edit
