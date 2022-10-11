@@ -56,7 +56,7 @@
           1,
           null,
           1,
-          0,
+          8,
           null,
           null
         ]
@@ -74,9 +74,9 @@
           1,
           null,
           1,
-          0,
+          8,
           null,
-          0,
+          8,
           null,
           null
         ]
@@ -91,29 +91,29 @@
           1,
           1,
           1,
-          15,
+          35,
           null,
           1,
           1,
           null,
           1,
-          1,
+          9,
           null,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          0,
-          0,
+          8,
           null,
           null,
           1,
-          1,
+          9,
           null,
-          0,
-          0,
+          22,
+          17,
+          null,
+          null,
+          1,
+          9,
+          null,
+          21,
+          17,
           null,
           null
         ]
@@ -126,11 +126,11 @@
           null,
           null,
           1,
-          7,
+          10,
           null,
-          7,
-          6,
-          6,
+          10,
+          9,
+          9,
           null,
           1,
           null,
@@ -151,13 +151,13 @@
           1,
           null,
           1,
-          101,
+          213,
           null,
-          54,
+          160,
           null,
           null,
           1,
-          2,
+          4,
           null,
           null
         ]
@@ -230,7 +230,7 @@
           null,
           null,
           1,
-          7,
+          17,
           null,
           null,
           null,
@@ -283,7 +283,7 @@
           1,
           null,
           1,
-          10,
+          42,
           null,
           null,
           1,
@@ -296,6 +296,13 @@
           0,
           0,
           null,
+          null
+        ]
+      },
+      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/models/style.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -307,7 +314,7 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           null,
@@ -332,17 +339,17 @@
           null,
           null,
           1,
-          0,
+          2,
           null,
-          0,
-          0,
-          0,
-          0,
+          2,
+          2,
+          2,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          2,
+          1,
           null,
           null,
           null,
@@ -379,15 +386,8 @@
           null,
           null,
           1,
-          0,
+          2,
           null,
-          null
-        ]
-      },
-      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/models/style.rb": {
-        "lines": [
-          1,
-          1,
           null
         ]
       },
@@ -525,6 +525,38 @@
           null,
           2,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/controllers/ratings_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -710,40 +742,6 @@
         "branches": {
         }
       },
-      "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/controllers/ratings_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/home/rrobert/HelsinginYliopisto/rubyrails/ratebeer/app/controllers/styles_controller.rb": {
         "lines": [
           0,
@@ -845,6 +843,6 @@
         }
       }
     },
-    "timestamp": 1665429691
+    "timestamp": 1665472629
   }
 }

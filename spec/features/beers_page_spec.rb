@@ -7,11 +7,12 @@ describe "Beers" do
     sign_in(username: "Pekka", password: "Foobar1")
   end
   let!(:brewery) { FactoryBot.create :brewery, name: "Koff" }
+  let!(:style) { FactoryBot.create :style, name: "Weizen" }
 
   it "new beer is created with proper name" do
     visit new_beer_path
     fill_in('beer[name]', with: 'test_brew')
-    select('Weizen', from: 'beer[style]')
+    select('Weizen', from: 'beer[style_id]')
     select('Koff', from: 'beer[brewery_id]')
 
     expect{
@@ -23,7 +24,7 @@ describe "Beers" do
   end
   it "new beer is not created with empty name" do
     visit new_beer_path
-    select('Weizen', from: 'beer[style]')
+    select('Weizen', from: 'beer[style_id]')
     select('Koff', from: 'beer[brewery_id]')
 
     click_button "Create Beer"
