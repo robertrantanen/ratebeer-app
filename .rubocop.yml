@@ -73,3 +73,7 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Enabled: true
   Max: 15
+
+GlobalVars:
+  AllowedVariables:
+    - $places
