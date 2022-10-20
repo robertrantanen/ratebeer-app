@@ -12,6 +12,6 @@ Beers:
 </p>
 
 <div>
-  <%= link_to "Edit this style", edit_style_path(@style) if current_user %> |
-  <%= link_to "Back to styles", styles_path %>
+  <%= link_to "Edit this style", edit_style_path(@style), class:"btn btn-primary" if current_user %> |
+  <%= link_to "Back to styles", styles_path, class:"btn btn-primary" %>
 </div>

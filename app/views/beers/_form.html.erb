@@ -13,20 +13,19 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :style, style: "display: block" %>
-    <%= form.select :style_id, options_from_collection_for_select(@styles, :id, :name) %>
+    <%= form.select :style_id, options_from_collection_for_select(@styles, :id, :name), {}, {class: "form-select"} %>
   </div>
 
   <div>
     <%= form.label :brewery, style: "display: block" %>
-    <%= form.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name) %>
+    <%= form.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name), {}, {class: "form-select"} %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <button type="submit" class="btn btn-primary">Create beer</button>
+
 <% end %>
