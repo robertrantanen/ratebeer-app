@@ -21,6 +21,11 @@
     <%= form.number_field :year, class: "form-control" %>
   </div>
 
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.check_box :active %>
+  </div>
+
   <button type="submit" class="btn btn-primary">Create brewery</button>
 
 <% end %>

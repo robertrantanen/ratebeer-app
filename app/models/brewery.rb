@@ -10,6 +10,9 @@ class Brewery < ApplicationRecord
                                    less_than_or_equal_to: ->(_year) { Date.current.year },
                                    only_integer: true }
 
+  scope :active, -> { where active: true }
+  scope :retired, -> { where active: [nil, false] }
+
   def print_report
     puts name
     puts "established at year #{year}"
