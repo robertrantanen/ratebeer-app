@@ -30,4 +30,8 @@ class User < ApplicationRecord
     r = ratings.group_by { |rating| rating.beer.brewery.name }
     r.max_by{ |_k, v| v.map(&:score).sum / v.count.to_f }[0]
   end
+
+  def self.top(amount)
+    User.all.sort_by{ |u| u.ratings.count }.reverse.take(amount)
+  end
 end

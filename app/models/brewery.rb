@@ -23,4 +23,8 @@ class Brewery < ApplicationRecord
     self.year = 2022
     puts "changed year to #{year}"
   end
+
+  def self.top(amount)
+    Brewery.all.sort_by(&:average_rating).reverse.take(amount)
+  end
 end
