@@ -12,6 +12,7 @@ Beers:
 </p>
 
 <div>
-  <%= link_to "Edit this style", edit_style_path(@style), class:"btn btn-primary" if current_user %> |
+  <%= edit_and_destroy_buttons(@style) %>
+  <br>
   <%= link_to "Back to styles", styles_path, class:"btn btn-primary" %>
 </div>

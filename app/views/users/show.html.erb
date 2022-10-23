@@ -22,7 +22,7 @@
   <%= @user.favorite_brewery %>
   </p>
   
-  <p>User has done <%=pluralize(@user.ratings.count, 'rating')%> with average of <%= @user.average_rating %></p>
+  <p>User has done <%=pluralize(@user.ratings.count, 'rating')%> with average of <%= round(@user.average_rating) %></p>
 <% end %>
 
 <ul>

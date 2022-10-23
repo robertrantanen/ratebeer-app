@@ -26,8 +26,7 @@
 <% end %>
 
 <div>
-  <%= link_to "Edit this club", edit_club_path(@club), class:"btn btn-primary" if current_user %> |
+  <%= edit_and_destroy_buttons(@club) %>
+  <br>
   <%= link_to "Back to clubs", clubs_path, class:"btn btn-primary" %>
-
-  <%= button_to "Destroy this club", @club, method: :delete, class:"btn btn-danger" if current_user%>
 </div>
