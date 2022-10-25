@@ -4,6 +4,10 @@
 <%= @user.username %>
 </p>
 
+<% if @user.closed  %>
+  <span class="badge bg-secondary">Closed</span>
+<% end %>
+
 <% if @user.ratings.empty? %>
   <p>User doesn't have any ratings!</p>
 <% else %>
@@ -24,6 +28,11 @@
   
   <p>User has done <%=pluralize(@user.ratings.count, 'rating')%> with average of <%= round(@user.average_rating) %></p>
 <% end %>
+
+<% if current_user.admin and @user != current_user %>
+  <%= link_to "change account status", toggle_closed_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger" %>
+<% end %>
+
 
 <ul>
   <% @user.ratings.each do |rating| %>
@@ -46,10 +55,10 @@
 
 <div>
   <% if @user == current_user %>
-    <%= link_to "Edit this user", edit_user_path(@user), class:"btn btn-primary" %> | 
+    <%= link_to "Edit account", edit_user_path(@user), class:"btn btn-primary" %>
+    <br>
+    <%= button_to "Delete account", @user, method: :delete, form: { style: 'display:inline-block;',  data: { 'turbo-confirm': 'Are you sure?' } }, class:"btn btn-danger" %>
+    <br>
   <% end %>
   <%= link_to "Back to users", users_path, class:"btn btn-primary" %>
-  <% if @user == current_user %>
-    <%= button_to "Destroy this user", @user, method: :delete, class:"btn btn-danger" %>
-  <% end %>
 </div>

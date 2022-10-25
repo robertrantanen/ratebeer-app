@@ -50,13 +50,13 @@ class StylesController < ApplicationController
   # DELETE /styles/1 or /styles/1.json
   # Delete disabled now
   def destroy
-    if current_user.admin
-      @style.destroy
+    return unless current_user.admin
 
-      respond_to do |format|
-        format.html { redirect_to styles_url, notice: "Style was successfully destroyed." }
-        format.json { head :no_content }
-      end
+    @style.destroy
+
+    respond_to do |format|
+      format.html { redirect_to styles_url, notice: "Style was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 

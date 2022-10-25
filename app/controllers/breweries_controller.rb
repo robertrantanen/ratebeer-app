@@ -52,23 +52,23 @@ class BreweriesController < ApplicationController
 
   # DELETE /breweries/1 or /breweries/1.json
   def destroy
-    if current_user.admin
-      @brewery.destroy
+    return unless current_user.admin
 
-      respond_to do |format|
-        format.html { redirect_to breweries_url, notice: "Brewery was successfully destroyed." }
-        format.json { head :no_content }
-      end
+    @brewery.destroy
+
+    respond_to do |format|
+      format.html { redirect_to breweries_url, notice: "Brewery was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
   def toggle_activity
     brewery = Brewery.find(params[:id])
-    brewery.update_attribute :active, (not brewery.active)
-  
+    brewery.update_attribute :active, !brewery.active
+
     new_status = brewery.active? ? "active" : "retired"
-  
-    redirect_to brewery, notice:"brewery activity status changed to #{new_status}"
+
+    redirect_to brewery, notice: "brewery activity status changed to #{new_status}"
   end
 
   private

@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     post 'toggle_activity', on: :member
   end
 
+  resources :users do
+    post 'toggle_closed', on: :member
+  end
+
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 

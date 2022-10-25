@@ -7,9 +7,7 @@ module ApplicationHelper
     edit = link_to('Edit', url_for([:edit, item]), class: "btn btn-primary")
     del = ""
     if current_user.admin
-      del = button_to('Destroy', item, method: :delete,
-                                   form: { data: { turbo_confirm: "Are you sure ?" } },
-                                   class: "btn btn-danger")
+      del = button_to('Destroy', item, method: :delete, form: { style: 'display:inline-block;', data: { 'turbo-confirm': 'Are you sure?' } }, class: "btn btn-danger")
     end
     raw("#{edit} #{del}")
   end
