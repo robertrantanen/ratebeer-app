@@ -16,7 +16,7 @@ describe "Beers" do
     select('Koff', from: 'beer[brewery_id]')
 
     expect{
-      click_button "Create Beer"
+      click_button "Create beer"
     }.to change{Beer.count}.from(0).to(1)
 
     expect(current_path).to eq(beers_path)
@@ -27,7 +27,7 @@ describe "Beers" do
     select('Weizen', from: 'beer[style_id]')
     select('Koff', from: 'beer[brewery_id]')
 
-    click_button "Create Beer"
+    click_button "Create beer"
 
     expect(Beer.count).to eq(0)
     expect(page).to have_content 'Name can\'t be blank'
