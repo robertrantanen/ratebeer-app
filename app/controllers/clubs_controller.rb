@@ -52,11 +52,13 @@ class ClubsController < ApplicationController
 
   # DELETE /clubs/1 or /clubs/1.json
   def destroy
-    @club.destroy
+    if current_user.admin
+      @club.destroy
 
-    respond_to do |format|
-      format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 

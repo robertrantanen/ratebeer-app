@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
+
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 
